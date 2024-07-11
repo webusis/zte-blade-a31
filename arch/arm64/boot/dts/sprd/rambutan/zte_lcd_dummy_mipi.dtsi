@@ -1,0 +1,35 @@
+/ { lcds {
+	zte_lcd_dummy_mipi_fhd: zte_lcd_dummy_mipi_fhd {
+
+		sprd,dsi-work-mode = <0>; /* cmd mode*/
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,initial-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 64 00 01 29
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <192000000>;
+				hactive = <1080>;
+				vactive = <2400>;
+				hback-porch = <0>;
+				hfront-porch = <0>;
+				vback-porch = <0>;
+				vfront-porch = <0>;
+				hsync-len = <0>;
+				vsync-len = <0>;
+			};
+		};
+	};
+}; };

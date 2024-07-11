@@ -1,0 +1,139 @@
+/ { lcds {
+	lcd_visionox_rm692e1_mipi_fhd: lcd_visionox_rm692e1_mipi_fhd {
+		zte,lcd-init-code-version = "20210901";
+		zte,lcd-backlight-register-bit-length = <0x0b>;
+		zte,lcd-cabc-default-value = <0x01>;
+		zte,lcd-cabc-off-command = [23 00 00 02 55 00];
+		zte,lcd-cabc-low-command = [23 00 00 02 55 01];
+		zte,lcd-cabc-medium-command = [23 00 00 02 55 02];
+		zte,lcd-cabc-high-command = [23 00 00 02 55 03];
+		zte,lcm_backlight_curve_mode = "lcd_brightness_max_450_lux";
+		zte,lcd-disable-ssc;
+		zte,panel-name = "lcd_visionox_rm692e1_6p67_mipi_fhd_raydium";
+		zte,lcd-delay-open-bl-value = <30>;
+		zte,lcd-backlight-min-value = <16>;
+
+		sprd,dsi-work-mode = <0>; /* cmd mode*/
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <1180000>;	/* kbps */
+		sprd,phy-escape-clock = <20000>;/* kHz */
+
+		sprd,width-mm = <69498>;
+		sprd,height-mm = <154440>;
+
+		sprd,esd-check-enable = <1>;/* 0:close , 1:open */
+		sprd,esd-check-mode = <1>;/* 0:REG ,1:TE  */
+		sprd,esd-check-period = <2000>;
+		sprd,esd-check-register = <0x0A>;
+		sprd,esd-check-value = <0x9C>;
+
+		sprd,reset-on-sequence = <1 10>, <0 10>, <1 210>;
+		sprd,reset-off-sequence = <0 5>;
+		sprd,initial-command = [
+			39 00 00 02 FE 38
+			39 00 00 02 18 13
+			39 00 00 02 FE 40
+			39 00 00 02 31 00
+			39 00 00 02 35 00
+			39 00 00 02 B2 45
+			39 00 00 02 FE 26
+			39 00 00 02 A4 1A
+			39 00 00 02 A5 1A
+			39 00 00 02 FE 14
+			39 00 00 02 A2 01
+			39 00 00 02 51 80
+			39 00 00 02 FE 12
+			39 00 00 02 83 20
+
+			39 00 00 02 FE D0
+			39 00 00 02 52 1A
+			39 00 00 02 FE 72
+			39 00 00 02 BD 00
+			39 00 00 02 BE 50
+			39 00 00 02 BF EA
+			39 00 00 02 C0 3F
+			39 00 00 02 C1 00
+			39 00 00 02 C2 48
+			39 00 00 02 C3 6B
+			39 00 00 02 C4 80
+			39 00 00 02 C5 A7
+			39 00 00 02 C6 D6
+			39 00 00 02 C7 20
+			39 00 00 02 C8 91
+			39 00 00 02 C9 23
+			39 00 00 02 CA 93
+			39 00 00 02 CB F0
+			39 00 00 02 CC 40
+			39 00 00 02 CD 83
+			39 00 00 02 CE C5
+			39 00 00 02 CF FF
+
+			39 00 00 02 FE 00
+			39 00 00 03 44 04 d8
+			39 00 00 02 FA 07
+			39 00 00 02 C2 08
+			39 00 00 02 35 00
+			39 00 00 03 51 00 00
+			05 50 00 01 11
+			05 14 00 01 29
+			];
+		sprd,sleep-in-command = [
+			39 00 00 03 51 00 00
+			05 32 00 01 28
+			05 20 00 01 10
+			];
+		sprd,sleep-out-command = [
+			05 50 00 01 11
+			05 14 00 01 29
+			];
+		sprd,doze-in-command = [
+			39 00 00 02 FE 40
+			39 00 00 02 B3 50
+			39 00 00 02 FE 22
+			39 00 00 02 5F 03
+			39 00 00 02 FE 40
+			39 00 00 02 15 13
+			39 00 00 02 FE 00
+			39 00 00 02 39 00
+			39 00 00 02 FE 00
+			];
+		sprd,doze-out-command = [
+			39 00 00 02 FE 40
+			39 00 00 02 B3 49
+			39 00 00 02 FE 22
+			39 00 00 02 5F 01
+			39 00 00 02 FE 40
+			39 00 00 02 15 4f
+			39 11 00 02 FE 00
+			39 11 00 03 51 00 00
+			39 00 00 02 38 00
+			39 00 00 02 FE 00
+			];
+
+		display-timings {
+			timing0 {
+				clock-frequency = <192000000>;
+				hactive = <1080>;
+				vactive = <2400>;
+				hback-porch = <0>;
+				hfront-porch = <0>;
+				vback-porch = <0>;
+				vfront-porch = <0>;
+				hsync-len = <0>;
+				vsync-len = <0>;
+			};
+		};
+
+		oled-backlight {
+			default-brightness-level = <816>;
+			sprd,max-level = <2047>;
+			brightness-levels = [
+				39 00 00 03 51 00 00
+				39 00 00 02 53 2C
+			];
+		};
+	};
+};};
+

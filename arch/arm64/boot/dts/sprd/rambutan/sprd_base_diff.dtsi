@@ -1,0 +1,15 @@
+/*
+ * this file is ued to change sprd dtsi which can't be changed by overlay
+ * such as /delete-node/ /delete-property/ and alises
+ */
+
+#include "zte_lcd.dtsi"
+#include "zte_charger_rambutan.dtsi"
+#include "zte_camera_rambutan.dtsi"
+#include "zte_nfc_rambutan.dtsi"
+#include "zte_audio_rambutan.dtsi"
+#include "touchscreen_rambutan.dtsi"
+#include "zte_fingerprint_rambutan.dtsi"
+#include "zte_thermal_rambutan.dtsi"
+#include "zte_nmcard_rambutan.dtsi"
+#include "zte_sar_rambutan.dtsi"

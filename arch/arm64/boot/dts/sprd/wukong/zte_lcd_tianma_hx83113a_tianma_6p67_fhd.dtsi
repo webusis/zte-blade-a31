@@ -1,0 +1,110 @@
+/ { lcds {
+	lcd_tianma_hx83113a_tianma_6p67_mipi_fhd: lcd_tianma_hx83113a_tianma_6p67_mipi_fhd {
+		zte,lcd-init-code-version = "20210629";
+		zte,lcd-backlight-register-bit-length = <0x0c>;
+		zte,lcd-cabc-default-value = <0x01>;
+		zte,lcd-cabc-off-command = [23 00 00 02 55 00];
+		zte,lcd-cabc-low-command = [23 00 00 02 55 01];
+		zte,lcd-cabc-medium-command = [23 00 00 02 55 02];
+		zte,lcd-cabc-high-command = [23 00 00 02 55 03];
+		zte,lcm_backlight_curve_mode = "lcd_brightness_max_450_lux";
+		zte,lcd_bl_vsp_vsn_voltage = <0x0f>;
+		zte,lcd-disable-ssc;
+		zte,lcd-reset-down-before-vsp;
+		zte,lcd-reset-down-delay-time = <15>;
+		zte,panel-name = "lcd_tianma_hx83113a_tianma_6p67_mipi_fhd";
+
+		sprd,dsi-work-mode = <1>; /* video burst mode*/
+		sprd,dsi-lane-number = <4>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <1280000>;  /* kbps */
+		sprd,phy-escape-clock = <20000>;/* kHz */
+
+		sprd,width-mm = <69498>;
+		sprd,height-mm = <154440>;
+
+		sprd,esd-check-enable = <1>;/* 0:close , 1:open */
+		sprd,esd-check-mode = <0>;/* 0:REG ,1:TE  */
+		sprd,esd-check-period = <3000>;
+		sprd,esd-check-register = <0x0A>;
+		sprd,esd-check-value = <0x9D>;
+
+		sprd,reset-on-sequence = <1 1>, <0 1>, <1 50>;
+		sprd,reset-off-sequence = <1 5>;
+
+		sprd,initial-command = [
+			39 00 00 04 b9 83 11 3a
+			39 00 00 02 bb 03
+			39 00 00 02 35 00
+			39 00 00 02 55 00
+			05 55 00 01 11
+			39 00 00 02 BD 01
+			39 00 00 3B C1 00 03 07 0B 0F 12 17 1A 1D 21
+						26 2A 2C 31 35 39 3C 40 44 48
+						50 57 5F 66 6E 76 7E 85 8D 94
+						9C A4 AB B3 BB C2 CA D2 D9 E1
+						E7 EA ED EE EF F2 39 32 E0 84
+						FD 27 D2 34 92 49 FD D0
+			39 00 00 02 BD 02
+			39 00 00 3B C1 00 03 07 0B 0F 12 17 1A 1E 22
+						26 2A 2D 31 35 39 3D 41 45 49
+						50 58 60 67 6F 77 7E 86 8E 95
+						9D A5 AC B4 BC C3 CB D3 DA E2
+						EA EE F0 F2 F4 F5 39 33 45 6E
+						90 92 49 24 D3 4D A2 80
+			39 00 00 02 BD 03
+			39 00 00 3B C1 00 03 07 0A 0E 11 16 1A 1E 22
+						27 2B 2E 33 37 3B 3F 43 47 4B
+						53 5B 64 6B 74 7C 84 8C 94 9C
+						A4 AC B4 BC C4 CC D4 DC E4 EC
+						F3 F8 FB FB FE FF 37 7F A6 8A
+						FF F3 00 01 45 55 93 00
+			39 00 00 02 BD 00
+			39 00 00 02 C1 01
+			39 00 00 04 B9 83 11 3A
+			39 00 00 11 B2 00 33 88 90 60 00 20 32 00 04
+						00 ce 11 11 00 00
+			39 05 00 27 D3 C1 08 01 01 00 08 01 01 07 01
+						1f 1f 09 09 09 09 20 04 32 10 1e
+						00 1e 32 10 07 00 07 32 10 07 00
+						07 00 00 22 09 82
+			39 00 00 1e E7 36 2a 08 08 25 72 24 72 00 aa
+						02 02 00 00 02 02 12 05 ff ff 24
+						72 00 aa 08 00 36 08 10
+			05 0A 00 01 29
+			];
+
+		sprd,sleep-in-command = [
+			13 0A 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 55 00 01 11
+			13 0A 00 01 29
+			];
+
+		display-timings {
+			tianma_hx83113a_tianma_6p67_timing0: timing0 {
+				clock-frequency = <192000000>;
+				hactive = <1080>;
+				vactive = <2400>;
+				hback-porch = <16>;
+				hfront-porch = <156>;
+				vback-porch = <32>;
+				vfront-porch = <52>;
+				hsync-len = <32>;
+				vsync-len = <2>;
+			};
+		};
+
+		/*oled-backlight {
+			default-brightness-level = <1638>;
+			sprd,max-level = <4095>;
+			brightness-levels = [
+				39 00 00 03 51 00 00
+				39 00 00 02 53 2C
+			];
+		};*/
+	};
+}; };

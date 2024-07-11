@@ -1,0 +1,14 @@
+
+&i2c5 {
+	status = "okay";
+	mlx90632@3a {
+		compatible = "melexis,mlx90632";
+		reg  = <0x3a>;
+
+		temp,vdd-gpio = <&ap_gpio 32 0x00>;
+		temp,vddio-gpio = <&ap_gpio 54 0x00>;
+		// temp_vdd-supply = <&mt_pmic_vfp_ldo_reg>;
+		power-type = <0>;
+	};
+};
+

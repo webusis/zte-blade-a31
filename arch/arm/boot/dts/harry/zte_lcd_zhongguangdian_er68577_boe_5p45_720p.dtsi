@@ -1,0 +1,96 @@
+/ { lcds {
+	lcd_zhongguangdian_er68577_boe_mipi_hd: lcd_zhongguangdian_er68577_boe_mipi_hd {
+		zte,lcd-init-code-version = "20210615_V0";
+		zte,lcd-backlight-register-bit-length = <0x08>;
+		zte,lcm_backlight_curve_mode = "lcd_brightness_max_350_lux";
+		zte,lcd-disable-ssc;
+		zte,lcd-delay-open-bl-value = <60>;
+		zte,lcd_bl_vsp_vsn_voltage = <0xf>;
+		zte,panel-name = "lcd_zhongguangdian_er68577_boe_mipi_hd";
+		zte,lcd-close-dynamic-dimming;
+		zte,lcd-support-er68577;
+		sprd,dsi-work-mode = <1>; /* video burst mode*/
+		sprd,dsi-lane-number = <3>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <725000>;	/* kbps */
+		sprd,phy-escape-clock = <20000>;/* kHz */
+
+		sprd,width-mm = <61884>;
+		sprd,height-mm = <125268>;/*5.45' to 5.5' 123768 to 125268*/
+
+		sprd,esd-check-enable = <1>;/* 0:close , 1:open */
+		sprd,esd-check-mode = <1>;/* 0:REG ,1:TE  */
+		/*sprd,dsi-non-continuous-clock;*/
+		sprd,esd-check-period = <1000>;
+		sprd,esd-check-register = <0x0A>;
+		sprd,esd-check-value = <0x9C>;
+		sprd,reset-on-sequence = <1 10>, <0 12>, <1 120>;
+		sprd,reset-off-sequence = <0 0>, <0 0>, <0 20>;
+		sprd,initial-command = [
+39 00 00 03 E0 AB BA
+39 00 00 03 E1 BA AB
+39 00 00 05 B1 10 01 47 FF
+39 00 00 07 B2 0C 14 04 50 50 14
+39 00 00 04 B3 56 52 A0
+39 00 00 04 B4 2A 30 04
+39 00 00 08 B6 00 00 00 10 00 10 00
+39 00 00 08 B8 05 12 29 49 48 00 00
+39 00 00 27 B9 7C 6D 64 5B 5C 4F 54 3E 56 54 4F 68 51 59 48 44 37 26 06 7C 6D 64
+				5B 5C 4F 54 3E 56 54 4F 68 51 59 48 44 37 26 06
+39 00 00 11 C0 76 54 12 34 44 44 44 44 90 04 80 04 0F 00 00 C1
+39 00 00 0B C1 54 94 02 85 90 04 80 04 54 00
+39 00 00 0D C2 37 09 08 89 08 11 22 33 44 82 18 00
+39 00 00 17 C3 A3 40 06 04 10 12 0C 0E 02 02 02 02 02 02 02 02 02 00 00 00 22 01
+39 00 00 17 C4 23 00 07 05 11 13 0D 0F 02 02 02 02 02 02 02 02 02 00 00 00 22 01
+39 00 00 07 C8 21 00 31 55 34 16
+39 00 00 06 C9 A1 22 FF 00 23
+39 00 00 03 CA B2 43
+39 00 00 09 CD 0E 64 64 11 1E 6B 06 B3
+39 00 00 05 D2 E2 2B 38 00
+39 00 00 0C D4 00 01 00 0E 04 44 08 10 00 00 00
+39 00 00 09 E6 80 01 FF FF FF FF FF FF
+39 00 00 06 F0 52 F9 21 00 FF
+39 00 00 02 F3 00
+39 00 00 02 35 00
+39 00 00 02 51 00
+23 00 00 02 53 2c
+23 00 00 02 55 00
+23 00 00 02 5E 04
+23 96 00 02 11 00
+23 32 00 02 29 00
+			];
+		sprd,sleep-in-command = [
+			39 00 00 02 51 00
+			13 50 00 01 28
+			13 30 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 14 00 01 29
+			];
+
+		display-timings {
+			lcd_zhongguangdian_er68577_boe_mipi_hd_timing0: timing0 {
+			clock-frequency = <76800000>;
+			hactive = <720>;
+			vactive = <1440>;
+			hback-porch = <70>;
+			hfront-porch = <70>;
+			vback-porch = <30>;
+			vfront-porch = <20>;
+			hsync-len = <10>;
+			vsync-len = <4>;
+			};
+		};
+		oled-backlight {
+			default-brightness-level = <102>;
+			sprd,max-level = <255>;
+			brightness-levels = [
+				39 00 00 02 51 00
+				23 00 00 02 53 24
+			];
+		};
+	};
+};};
+

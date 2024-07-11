@@ -1,0 +1,1 @@
+obj-$(CONFIG_SPRD_FSA4480_I2C)	+= fsa4480-i2c.o

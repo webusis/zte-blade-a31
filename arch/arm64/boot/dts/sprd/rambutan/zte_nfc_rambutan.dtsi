@@ -1,0 +1,12 @@
+&i2c4 {
+		nfc@08 {
+		compatible = "st,st21nfc";
+		reg = <0x8>;
+		interrupt-parent = <&ap_gpio>;
+		interrupts = <53 0>;
+		irq-gpios = <&ap_gpio 53 0>;
+		reset-gpios = <&ap_gpio 137 0>;
+		interrupt-names = "nfc_int";
+	};
+};
+

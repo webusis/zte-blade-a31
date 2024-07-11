@@ -1,0 +1,17 @@
+#include <dt-bindings/pinctrl/pinctrl-sprd.h>
+
+&sdio0 {
+	/delete-property/	sd-uhs-sdr104;
+	/delete-property/	sd-uhs-sdr50;
+	mmc-hs200-1_8v;
+	sprd,name = "sdio_nm";
+	/delete-property/	no-mmc;
+	no-sd;
+	adi-addr = <0x32100000 0x20c 0x88>;
+	pinctrl-names = "conf0","conf1","conf2","conf3";
+	pinctrl-0 = <&conf0>;
+	pinctrl-1 = <&conf1>;
+	pinctrl-2 = <&conf2>;
+	pinctrl-3 = <&conf3>;
+
+};

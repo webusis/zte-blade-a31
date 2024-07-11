@@ -1,0 +1,8 @@
+/ {
+	goodix_fp {
+		compatible = "goodix,fingerprint";
+		fp-gpio-reset = <&ap_gpio 131 0x00>;
+		fp-gpio-irq = <&ap_gpio 130 0x00>;
+		fp-gpio-pwr = <&ap_gpio 138 0x00>;
+	};
+};

@@ -1,0 +1,10 @@
+/*
+ * this file is ued to change sprd dtsi which can't be changed by overlay
+ * such as /delete-node/ /delete-property/ and alises
+ */
+
+#include "zte_lcd.dtsi"
+#include "zte_charger_dary.dtsi"
+#include "touchscreen_dary.dtsi"
+#include "zte_sensor_dary.dtsi"
+

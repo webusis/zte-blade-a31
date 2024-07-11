@@ -1,0 +1,96 @@
+/ { lcds {
+	lcd_skyworth_icnl9707_boe_mipi_hd: lcd_skyworth_icnl9707_boe_mipi_hd {
+		zte,lcd-init-code-version = "20210323_V0";
+		zte,lcd-backlight-register-bit-length = <0x0c>;
+		zte,lcm_backlight_curve_mode = "lcd_brightness_max_350_lux";
+		zte,lcd-disable-ssc;
+		zte,lcd-delay-open-bl-value = <20>;
+		zte,lcd_bl_vsp_vsn_voltage = <0xf>;
+		zte,panel-name = "lcd_skyworth_icnl9707_boe_mipi_hd";
+		zte,lcd-close-dynamic-dimming;
+
+		sprd,dsi-work-mode = <1>; /* video burst mode*/
+		sprd,dsi-lane-number = <3>;
+		sprd,dsi-color-format = "rgb888";
+
+		sprd,phy-bit-clock = <725000>;	/* kbps */
+		sprd,phy-escape-clock = <20000>;/* kHz */
+
+		sprd,width-mm = <61884>;
+		sprd,height-mm = <125268>;/*5.45' to 5.5' 123768 to 125268*/
+
+		sprd,esd-check-enable = <1>;/* 0:close , 1:open */
+		sprd,esd-check-mode = <1>;/* 0:REG ,1:TE  */
+		sprd,esd-check-period = <1000>;
+		sprd,esd-check-register = <0x0A>;
+		sprd,esd-check-value = <0x9C>;
+		sprd,reset-on-sequence = <1 10>, <0 5>, <1 50>;
+		sprd,reset-off-sequence = <0 0>, <0 0>, <1 20>;
+		sprd,initial-command = [
+39 00 00 03 F0 5A 59
+39 00 00 03 F1 A5 A6
+39 00 00 10 B0 76 54 00 00 33 33 00 00 1A 00 00 6c 00 00 0f
+39 00 00 0B B1 53 84 02 85 37 00 00 6c 00 00
+39 00 00 02 B2 37
+39 00 00 17 B3 23 1D 06 04 10 12 0C 0E 02 02 02 02 02 02 02 02 02 00 00 00 22 1C
+39 00 00 17 B4 23 1D 07 05 11 13 0D 0F 02 02 02 02 02 02 02 02 02 00 00 00 22 1C
+/*39 00 00 03 B6 2f 2f*/
+39 00 00 13 B7 01 01 09 0D 11 19 1D 15 00 25 21 00 00 00 00 02 F7 38
+39 00 00 05 B8 B4 53 02 CC
+39 00 00 03 BA 27 83
+39 00 00 08 BD 43 0E 0E 7D 7D 14 1E
+39 00 00 09 C1 01 0C 36 04 00 32 32 04
+39 00 00 03 C2 20 D0
+39 00 00 03 C3 02 31
+39 00 00 09 C6 00 00 FF 00 00 FF 00 00
+39 00 00 27 C8 7C 6B 5E 53 51 44 48 32 4B 4A 49 67 54 5B 4C 46
+		38 23 06 7C 6B 5E 53 51 44 48 32 4B 4A 49 67 54
+		5B 4C 46 38 23 06
+39 00 00 04 D0 07 FF FF
+39 00 00 05 D2 62 0B 08 88
+39 00 00 07 D4 00 00 00 32 04 54
+39 00 00 03 e0 30 f9
+39 00 00 03 F1 5A 59
+39 00 00 03 F0 A5 A6
+39 00 00 02 35 00
+39 00 00 03 51 00 00
+39 00 00 02 53 2C
+39 00 00 02 55 00
+39 00 00 03 5e 00 40
+23 78 00 02 11 00
+23 32 00 02 29 00
+			];
+		sprd,sleep-in-command = [
+			39 00 00 03 51 00 00
+			13 20 00 01 28
+			13 78 00 01 10
+			];
+		sprd,sleep-out-command = [
+			13 78 00 01 11
+			13 14 00 01 29
+			];
+
+		display-timings {
+			lcd_skyworth_icnl9707_boe_mipi_hd_timing0: timing0 {
+			clock-frequency = <76800000>;
+			hactive = <720>;
+			vactive = <1440>;
+			hback-porch = <58>;
+			hfront-porch = <58>;
+			vback-porch = <36>;
+			vfront-porch = <36>;
+			hsync-len = <8>;
+			vsync-len = <4>;
+			};
+		};
+		oled-backlight {
+			default-brightness-level = <1632>;
+			sprd,max-level = <4095>;
+			brightness-levels = [
+				39 00 00 03 51 00 00
+				23 00 00 02 53 24
+			];
+		};
+	};
+};};
+

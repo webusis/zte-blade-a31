@@ -1,0 +1,17 @@
+&i2c2 {
+	clock-frequency = <400000>;
+	status = "okay";
+
+	/delete-node/ adaptive-touchscreen@38;
+
+	tlsc6x_ts@2e {
+		compatible = "tlsc6x,tlsc6x_ts";
+		reg = <0x2e>;
+		gpios = <&ap_gpio 63 0
+			&ap_gpio 64 0>;
+		vdd_name = "vdd28";
+		TP_MAX_X = <480>;
+		TP_MAX_Y = <960>;
+	};
+};
+
